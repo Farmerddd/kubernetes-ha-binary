@@ -152,7 +152,7 @@ $ vi ~/.bash_profile
 我这准备了一个项目，专门为大家按照自己的环境生成配置的。它只是帮助大家尽量的减少了机械化的重复工作。它并不会帮你设置系统环境，不会给你安装软件。总之就是会减少你的部署工作量，但不会耽误你对整个系统的认识和把控。
 ```bash
 $ cd ~
-$ git clone https://gitee.com/pa/kubernetes-ha-binary.git
+$ git clone https://git.imooc.com/coding-335/kubernetes-ha-binary.git
 
 # 看看git内容
 $ ls -l kubernetes-ha-binary
