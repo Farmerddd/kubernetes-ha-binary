@@ -1,0 +1,3 @@
+# kubernetes-ha-binary
+
+项目致力于让有意向使用原生kubernetes集群的企业或个人，可以方便的、系统的使用二进制的方式手工搭建kubernetes高可用集群。并且让相关的人员可以更好的理解kubernetes集群的运作机制。
