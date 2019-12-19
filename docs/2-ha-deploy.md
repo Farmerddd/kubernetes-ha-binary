@@ -405,7 +405,7 @@ $ service kubelet status
 $ journalctl -f -u kubelet
 ```
 
-## 9. 部署kube-proxy（worker节点）
+## 9. 部署kube-proxy（所有节点）
 #### 9.1 创建证书和私钥
 ```bash
 $ cd target/pki/proxy
