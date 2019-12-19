@@ -13,7 +13,6 @@ ExecStart=/opt/kubernetes/bin/kubelet \
   --config=/etc/kubernetes/kubelet.config.json \
   --network-plugin=cni \
   --pod-infra-container-image=k8s.gcr.io/pause-amd64:3.1 \
-  --allow-privileged=true \
   --alsologtostderr=true \
   --logtostderr=false \
   --log-dir=/var/log/kubernetes \
