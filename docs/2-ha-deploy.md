@@ -487,7 +487,7 @@ $ scp target/addons/coredns.yaml <user>@<node-ip>:/etc/kubernetes/addons/
 $ kubectl create -f /etc/kubernetes/addons/coredns.yaml
 
 
-### 12. 部署kube-proxy遇到的问题。
+###  **12. 部署kube-proxy遇到的问题** 。
 
 
 出现错误日志日志
