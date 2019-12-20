@@ -7,36 +7,52 @@ $ cat > nginx-ds.yml <<EOF
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-ds
+  name: svc-nginx-ds
   labels:
-    app: nginx-ds
+    app: svc-nginx-ds
 spec:
   type: NodePort
   selector:
-    app: nginx-ds
+    app: rq-nginx-ds
   ports:
   - name: http
     port: 80
     targetPort: 80
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: nginx-ds
   labels:
     addonmanager.kubernetes.io/mode: Reconcile
 spec:
+  selector:
+    matchLabels:
+      app: rq-nginx-ds
   template:
     metadata:
       labels:
-        app: nginx-ds
+        app: rq-nginx-ds
     spec:
       containers:
       - name: my-nginx
-        image: nginx:1.7.9
+        image: nginx:1.12.0
         ports:
         - containerPort: 80
 EOF
+
+注意事项：
+1. kubernets v1.16以后版本API变化为： apiVersion: apps/v1
+否则报一下错误:
+no matches for kind "DaemonSet" in version "extensions/v1beta1"
+no matches for kind "Deployment" in version "extensions/v1beta1"
+
+2. 新版本的 apps.v1 API需要在yaml文件中，selector变为必选项
+
+否则报一下错误:
+error validating data: ValidationError(DaemonSet.spec): missing required field "selector" in io.k8s.api.apps.v1.DaemonSetSpec; if you choose to ignore these errors, turn validation off with --validate=false
+
+1.16以后的版本API变
 
 # 创建ds
 $ kubectl create -f nginx-ds.yml
