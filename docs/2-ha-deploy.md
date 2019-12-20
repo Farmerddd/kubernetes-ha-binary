@@ -487,7 +487,7 @@ $ scp target/addons/coredns.yaml <user>@<node-ip>:/etc/kubernetes/addons/
 $ kubectl create -f /etc/kubernetes/addons/coredns.yaml
 
 
-## 11. 部署kube-proxy遇到的问题。
+## 12. 部署kube-proxy遇到的问题。
 
 出现错误日志日志
 kube-proxy 日志：I0923 10:19:59.443659  543401 proxier.go:1729] Not using `--random-fully` in the MASQUERADE rule for iptables because the local version of iptables does not support it
@@ -495,10 +495,10 @@ kubelet日志：I0923 11:24:47.087532    1941 kubelet_network_linux.go:111] Not 
 持续不间断出现这样的错误
 按照错误日志提示iptables 本地版本不支持升级iptables
 
-11.1 安装升级iptables所需依赖
+12.1 安装升级iptables所需依赖
 
 $ yum install gcc make libnftnl-devel libmnl-devel autoconf automake libtool bison flex  libnetfilter_conntrack-devel libnetfilter_queue-devel libpcap-devel bzip2 -y
-11.2 编译安装iptables
+12.2 编译安装iptables
 
 $ export LC_ALL=C
 $ wget wget https://www.netfilter.org/projects/iptables/files/iptables-1.6.2.tar.bz2
