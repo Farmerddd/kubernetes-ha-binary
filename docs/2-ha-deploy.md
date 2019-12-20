@@ -506,7 +506,7 @@ $ ./autogen.sh
 $ ./configure --prefix=/usr/local/iptables
 $ make -j4
 $ make install
-# 当然可以把cd /usr/local/sbin下面的iptables相关的东西打包然后分发到其它服务器
+# 当然可以把cd /usr/local/sbin下面的iptables相关的东西打包然后分发到其它服务器#
 $ cd /usr/local/iptables/sbin
 $ cp iptables /sbin/
 $ cp iptables-restore /sbin/
