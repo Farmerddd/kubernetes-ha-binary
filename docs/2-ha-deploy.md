@@ -486,7 +486,7 @@ $ scp target/addons/coredns.yaml <user>@<node-ip>:/etc/kubernetes/addons/
 # 部署coredns
 $ kubectl create -f /etc/kubernetes/addons/coredns.yaml
 
- ** 12. 部署kube-proxy遇到的问题。** 
+ 12. 部署kube-proxy遇到的问题。
 
 出现错误日志日志
 kube-proxy 日志：I0923 10:19:59.443659  543401 proxier.go:1729] Not using `--random-fully` in the MASQUERADE rule for iptables because the local version of iptables does not support it
