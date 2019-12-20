@@ -11,6 +11,7 @@
 - calico v3.10.2
 
 软件兼容性参考:
+
 https://github.com/coredns/deployment/blob/master/kubernetes/CoreDNS-k8s_version.md
 https://docs.projectcalico.org/v3.10/getting-started/kubernetes/requirements
 
