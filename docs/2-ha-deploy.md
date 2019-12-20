@@ -529,4 +529,4 @@ $ echo "source <(kubectl completion bash)" >> ~/.bashrc
 13.2 配置etcdctl
 
 $ echo "alias etcdctl='etcdctl --ca-file=/etc/kubernetes/pki/ca.pem --cert-file=/etc/kubernetes/pki/kubernetes.pem --key-file=/etc/kubernetes/pki/kubernetes-key.pem'" >> ~/.bashrc
-$sourct ~/.bashrc
+$ sourct ~/.bashrc
