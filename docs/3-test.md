@@ -52,8 +52,6 @@ no matches for kind "Deployment" in version "extensions/v1beta1"
 否则报一下错误:
 error validating data: ValidationError(DaemonSet.spec): missing required field "selector" in io.k8s.api.apps.v1.DaemonSetSpec; if you choose to ignore these errors, turn validation off with --validate=false
 
-1.16以后的版本API变
-
 # 创建ds
 $ kubectl create -f nginx-ds.yml
 
