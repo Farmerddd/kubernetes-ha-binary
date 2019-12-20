@@ -497,7 +497,9 @@ kubelet日志：I0923 11:24:47.087532    1941 kubelet_network_linux.go:111] Not 
 
 12.1 安装升级iptables所需依赖
 $ yum install gcc make libnftnl-devel libmnl-devel autoconf automake libtool bison flex  libnetfilter_conntrack-devel libnetfilter_queue-devel libpcap-devel bzip2 -y
+
 12.2 编译安装iptables
+
 $ export LC_ALL=C
 $ wget wget https://www.netfilter.org/projects/iptables/files/iptables-1.6.2.tar.bz2
 $ tar -xvf iptables-1.6.2.tar.bz2
