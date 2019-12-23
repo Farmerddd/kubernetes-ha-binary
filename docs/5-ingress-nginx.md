@@ -88,7 +88,7 @@ metadata:
   name: nginx-ds-ingress
   namespace: default
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false" #取消强制跳转到https
 spec:
   tls:
   - hosts:
