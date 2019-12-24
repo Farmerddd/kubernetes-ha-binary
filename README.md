@@ -20,8 +20,10 @@ https://docs.projectcalico.org/v3.10/getting-started/kubernetes/requirements
 #### [二、高可用集群部署][2]
 #### [三、集群可用性测试][3]
 #### [四、部署dashboard][4]
+#### [五、部署ingress][5]
 
 [1]:https://gitee.com/fandd/kubernetes-ha-binary/blob/master/docs/1-prepare.md
 [2]:https://gitee.com/fandd/kubernetes-ha-binary/blob/master/docs/2-ha-deploy.md
 [3]:https://gitee.com/fandd/kubernetes-ha-binary/blob/master/docs/3-test.md
 [4]:https://gitee.com/fandd/kubernetes-ha-binary/blob/master/docs/4-dashboard.md
+[5]:https://gitee.com/fandd/kubernetes-ha-binary/blob/master/docs/5-ingress-nginx.md
