@@ -110,3 +110,21 @@ kubectl apply -f nginx-ingress-ssl.yaml
 http://192.168.15.246:8480
 http://192.168.15.246:8443
 
+
+将Nginx迁移到Ingress之后，通过日志系统发现日志里出现了很多“308”的状态码。
+
+我们之前是http > http , https > https 这种模式，Ingress 开启TLS后，则是http>https , https>https 。所以是有是有差异的。
+
+原因：默认情况下，如果为该Ingress启用了TLS，则控制器会使用308永久重定向响应将HTTP客户端重定向到HTTPS端口443。
+
+k8s路由默认http跳转到https， 用的是308跳转，ie浏览器，或者有些低版本的浏览器不支持“308”跳转的，要改成“301”跳转，不然低版本的浏览器会报错。
+
+介于以上问题，需要修改NGINX config map文件的以下配置：
+
+1.ssl-redirect: "false" （服务端http强制调准到https，false 表示关闭，true表示打开）
+
+2.hsts=false （客户端如（浏览器）强制跳转https,false表示关闭，ture表示打开）
+
+如果需要开启强制跳转，那就使用301强制跳转，不要使用308
+
+http-redirect-code = 301 （使用301 进行强制跳转）
