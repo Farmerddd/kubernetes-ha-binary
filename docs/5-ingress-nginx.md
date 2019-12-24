@@ -92,10 +92,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - k8s.molbase.org
-    secretName: k8s.molbase.org
+    - k8s.xxx.org
+    secretName: k8s.xxx.org
   rules:
-  - host: k8s.molbase.org
+  - host: k8s.xxx.org
     http:
       paths:
       - path: /
