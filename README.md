@@ -22,8 +22,8 @@ https://docs.projectcalico.org/v3.10/getting-started/kubernetes/requirements
 #### [四、部署dashboard][4]
 #### [五、部署ingress][5]
 
-[1]:https://gitee.com/fandd/kubernetes-ha-binary/blob/master/docs/1-prepare.md
-[2]:https://gitee.com/fandd/kubernetes-ha-binary/blob/master/docs/2-ha-deploy.md
-[3]:https://gitee.com/fandd/kubernetes-ha-binary/blob/master/docs/3-test.md
-[4]:https://gitee.com/fandd/kubernetes-ha-binary/blob/master/docs/4-dashboard.md
-[5]:https://gitee.com/fandd/kubernetes-ha-binary/blob/master/docs/5-ingress-nginx.md
+[1]:https://github.com/Farmerddd/kubernetes-ha-binary/blob/master/docs/1-prepare.md
+[2]:https://github.com/Farmerddd/kubernetes-ha-binary/blob/master/docs/2-ha-deploy.md
+[3]:https://github.com/Farmerddd/kubernetes-ha-binary/blob/master/docs/3-test.md
+[4]:https://github.com/Farmerddd/kubernetes-ha-binary/blob/master/docs/4-dashboard.md
+[5]:https://github.com/Farmerddd/kubernetes-ha-binary/blob/master/docs/5-ingress-nginx.md
