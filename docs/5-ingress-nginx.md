@@ -107,8 +107,8 @@ kubectl apply -f nginx-ingress-ssl.yaml
 
 5. 测试
 
-http://192.168.15.246:8480
-http://192.168.15.246:8443
+http://k8s.xxx.org:8480
+http://k8s.xxx.org:8443
 
 6. 注意事项
 
