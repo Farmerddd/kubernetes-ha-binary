@@ -36,8 +36,8 @@ spec:
 $ kubectl apply -f mandatory.yaml
 $ kubectl apply -f service-nodeport.yaml
 2. 生成证书
-$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./tls.key -out ./tls.crt  -subj "/CN=k8s.molbase.org/O=dev"
-$ kubectl create secret tls k8s.molbase.org --key ./tls.key --cert ./tls.crt 
+$ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./tls.key -out ./tls.crt  -subj "/CN=k8s.xxxx.org/O=dev"
+$ kubectl create secret tls k8s.xxxx.org --key ./tls.key --cert ./tls.crt 
 
 3. 
 # 创建服务
