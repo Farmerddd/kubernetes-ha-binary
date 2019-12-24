@@ -110,6 +110,7 @@ kubectl apply -f nginx-ingress-ssl.yaml
 http://192.168.15.246:8480
 http://192.168.15.246:8443
 
+6. 注意事项
 
 将Nginx迁移到Ingress之后，通过日志系统发现日志里出现了很多“308”的状态码。
 
