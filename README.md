@@ -19,8 +19,8 @@ https://docs.projectcalico.org/v3.10/getting-started/kubernetes/requirements
 #### [一、实践环境准备][1]
 #### [二、高可用集群部署][2]
 #### [三、集群可用性测试][3]
-#### [五、部署ingress][4]
-#### [四、部署dashboard][5]
+#### [四、部署ingress][4]
+#### [五、部署dashboard][5]
 
 
 [1]:https://github.com/Farmerddd/kubernetes-ha-binary/blob/master/docs/1-prepare.md
