@@ -1,5 +1,4 @@
 ## 四. 部署dashboard
-
 # 1. 生成证书
 下面是生成 k8s dashboard 域名证书方法，任何一种都可以
 ```
@@ -7,24 +6,24 @@
 通过 Let’s Encrypt 生成 90天 免费证书
 通过 Cert-Manager 服务来生成和管理证书
 ```
-#v2.0.0 单独放一个 namespace，下面是创建 kubernetes-dashboard namespace
+v2.0.0 单独放一个 namespace，下面是创建 kubernetes-dashboard namespace
 ```
 $ kubectl  create namespace kubernetes-dashboard
 ```
-#把生成的免费证书存放在 $HOME/certs 目录下，取名为 tls.crt 和 tls.key
+把生成的免费证书存放在 $HOME/certs 目录下，取名为 tls.crt 和 tls.key
 ```
 $ mkdir $HOME/certs
 ```
-#创建 ssl 证书 secret
+创建 ssl 证书 secret
 ```
 $ kubectl create secret generic kubernetes-dashboard-certs --from-file=$HOME/certs -n kubernetes-dashboard
 ```
-## 2. 准备dashboard yaml
+# 2. 准备dashboard yaml
 ```
 $ wget https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
 $ scp recommended.yaml <user>@<node-ip>:/etc/kubernetes/addons/
 ```
-#修改 Deployment yaml 配置， 把创建 kubernetes-dashboard-certs Secret 注释掉，前面已通过命令创建，具体修改见下面配置
+修改 Deployment yaml 配置， 把创建 kubernetes-dashboard-certs Secret 注释掉，前面已通过命令创建，具体修改见下面配置
  ```
  $ vi /etc/kubernetes/addons/recommended.yaml
 #apiVersion: v1
@@ -44,11 +43,11 @@ $ scp recommended.yaml <user>@<node-ip>:/etc/kubernetes/addons/
         - --tls-key-file=/tls.key
         - --token-ttl=3600
 ```
-## 3. 部署 k8s dashboard 创建服务
+# 3. 部署 k8s dashboard 创建服务
 ```
 $ kubectl apply -f /etc/kubernetes/addons/recommended.yaml
 ```
-#查看服务运行情况
+查看服务运行情况
 ```
 $ kubectl get all -n kubernetes-dashboard
 ```
@@ -108,12 +107,12 @@ spec:
           serviceName: kubernetes-dashboard
           servicePort: 443
  ```
- #准备ssl证书，注意Ingress必须与secret在同一个namespace
+ 准备ssl证书，注意Ingress必须与secret在同一个namespace
  ```
  $ kubectl -n kubernetes-dashboard create secret tls das.360mm.ga --key $HOME/certs/tls.key --cert $HOME/certs/tls.crt
 ```
 ## 6. 访问dashboard
-#获取登陆 token
+获取登陆 token
 ```
 $ kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep kubernetes-dashboard-admin-token | awk '{print $1}')
 ```
