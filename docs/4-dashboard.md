@@ -18,7 +18,7 @@ $ mkdir $HOME/certs
 ```
 $ kubectl create secret generic kubernetes-dashboard-certs --from-file=$HOME/certs -n kubernetes-dashboard
 ```
-# 2. 准备dashboard yaml
+### 2. 准备dashboard yaml
 ```
 $ wget https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
 $ scp recommended.yaml <user>@<node-ip>:/etc/kubernetes/addons/
@@ -43,7 +43,7 @@ $ scp recommended.yaml <user>@<node-ip>:/etc/kubernetes/addons/
         - --tls-key-file=/tls.key
         - --token-ttl=3600
 ```
-# 3. 部署 k8s dashboard 创建服务
+### 3. 部署 k8s dashboard 创建服务
 ```
 $ kubectl apply -f /etc/kubernetes/addons/recommended.yaml
 ```
@@ -51,7 +51,7 @@ $ kubectl apply -f /etc/kubernetes/addons/recommended.yaml
 ```
 $ kubectl get all -n kubernetes-dashboard
 ```
-## 4. 创建登陆用户
+### 4. 创建登陆用户
 ```
 $ cat /etc/kubernetes/addons/dashboard-admin.yaml
 ---
@@ -81,7 +81,7 @@ subjects:
   #创建
  kubectl apply -f /etc/kubernetes/addons/dashboard-admin.yaml
  ```
- ## 5. 创建Ingress 入口文件
+ ### 5. 创建Ingress 入口文件
  ```
 $ cat /etc/kubernetes/addons/dashboard-ingress.yaml
  apiVersion: extensions/v1beta1
@@ -111,7 +111,7 @@ spec:
  ```
  $ kubectl -n kubernetes-dashboard create secret tls das.360mm.ga --key $HOME/certs/tls.key --cert $HOME/certs/tls.crt
 ```
-## 6. 访问dashboard
+### 6. 访问dashboard
 获取登陆 token
 ```
 $ kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep kubernetes-dashboard-admin-token | awk '{print $1}')
