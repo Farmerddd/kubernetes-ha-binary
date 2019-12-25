@@ -78,8 +78,10 @@ subjects:
 - kind: ServiceAccount
   name: kubernetes-dashboard-admin
   namespace: kubernetes-dashboard
-  #创建
- kubectl apply -f /etc/kubernetes/addons/dashboard-admin.yaml
+ ```
+ 创建
+ ```
+ $ kubectl apply -f /etc/kubernetes/addons/dashboard-admin.yaml
  ```
  ### 5. 创建Ingress 入口文件
  ```
