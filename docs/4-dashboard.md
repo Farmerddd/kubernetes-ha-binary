@@ -2,14 +2,11 @@
 
 # 1. 生成证书
 下面是生成 k8s dashboard 域名证书方法，任何一种都可以
-
+```
 通过 https://freessl.cn 网站，在线生成免费1年的证书
-
 通过 Let’s Encrypt 生成 90天 免费证书
-
 通过 Cert-Manager 服务来生成和管理证书
-
-
+```
 #v2.0.0 单独放一个 namespace，下面是创建 kubernetes-dashboard namespace
 ```
 $ kubectl  create namespace kubernetes-dashboard
