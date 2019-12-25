@@ -1,4 +1,20 @@
 ## 四. 部署dashboard
+```
+V2.0.0 相比 V1.x.x 优势
+监控信息不需要通过 Heapster 来提供，而是通过 Metrics Server 来提供，Metrics Scraper服务来采集，不需要单独维护 Heapster
+支持暗黑主题
+监控图显示更细节化
+编辑支持 yaml 和 json
+v2.0.0-beta6 兼容性
+Kubernetes版本	兼容性
+1.12	?
+1.13	?
+1.14	?
+1.15	?
+1.16	✓
+✓ 完全支持的版本范围
+? 由于 Kubernetes API 版本之间的重大更改，某些功能可能无法在仪表板中正常使用。
+```
 ### 1. 生成证书
 下面是生成 k8s dashboard 域名证书方法，任何一种都可以
 ```
