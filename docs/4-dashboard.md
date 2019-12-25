@@ -1,6 +1,6 @@
-# 四. 部署dashboard
+## 四. 部署dashboard
 
-## 1. 生成证书
+# 1. 生成证书
 下面是生成 k8s dashboard 域名证书方法，任何一种都可以
 
 通过 https://freessl.cn 网站，在线生成免费1年的证书
@@ -25,6 +25,7 @@ $ wget https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/d
 $ scp recommended.yaml <user>@<node-ip>:/etc/kubernetes/addons/
  
 #修改 Deployment yaml 配置， 把创建 kubernetes-dashboard-certs Secret 注释掉，前面已通过命令创建，具体修改见下面配置
+ ```
  $ vi /etc/kubernetes/addons/recommended.yaml
 #apiVersion: v1
 #kind: Secret
@@ -34,7 +35,7 @@ $ scp recommended.yaml <user>@<node-ip>:/etc/kubernetes/addons/
 #  name: kubernetes-dashboard-certs
 #  namespace: kubernetes-dashboard
 #type: Opaque
-
+```
 #添加ssl证书路径，关闭自动更新证书，添加多长时间登出
 
       containers:
