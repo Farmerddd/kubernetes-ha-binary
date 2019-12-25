@@ -4,25 +4,28 @@
 下面是生成 k8s dashboard 域名证书方法，任何一种都可以
 
 通过 https://freessl.cn 网站，在线生成免费1年的证书
+
 通过 Let’s Encrypt 生成 90天 免费证书
+
 通过 Cert-Manager 服务来生成和管理证书
 
-## v2.0.0 单独放一个 namespace，下面是创建 kubernetes-dashboard namespace
+
+#v2.0.0 单独放一个 namespace，下面是创建 kubernetes-dashboard namespace
 $ kubectl  create namespace kubernetes-dashboard
 
-## 把生成的免费证书存放在 $HOME/certs 目录下，取名为 tls.crt 和 tls.key
+#把生成的免费证书存放在 $HOME/certs 目录下，取名为 tls.crt 和 tls.key
 $ mkdir $HOME/certs
 
-## 创建 ssl 证书 secret
+#创建 ssl 证书 secret
 $ kubectl create secret generic kubernetes-dashboard-certs --from-file=$HOME/certs -n kubernetes-dashboard
 
 ## 2. 准备dashboard yaml
 
 $ wget https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
 $ scp recommended.yaml <user>@<node-ip>:/etc/kubernetes/addons/
-## 修改 Deployment yaml 配置， 把创建 kubernetes-dashboard-certs Secret 注释掉，前面已通过命令创建，具体修改见下面配置
+ 
+#修改 Deployment yaml 配置， 把创建 kubernetes-dashboard-certs Secret 注释掉，前面已通过命令创建，具体修改见下面配置
  $ vi /etc/kubernetes/addons/recommended.yaml
-  
 #apiVersion: v1
 #kind: Secret
 #metadata:
@@ -32,7 +35,7 @@ $ scp recommended.yaml <user>@<node-ip>:/etc/kubernetes/addons/
 #  namespace: kubernetes-dashboard
 #type: Opaque
 
-# 添加ssl证书路径，关闭自动更新证书，添加多长时间登出
+#添加ssl证书路径，关闭自动更新证书，添加多长时间登出
 
       containers:
       - args:
@@ -44,7 +47,7 @@ $ scp recommended.yaml <user>@<node-ip>:/etc/kubernetes/addons/
 ## 3. 部署 k8s dashboard 创建服务
 $ kubectl apply -f /etc/kubernetes/addons/recommended.yaml
 
-# 查看服务运行情况
+#查看服务运行情况
 $ kubectl get all -n kubernetes-dashboard
 ## 4. 创建登陆用户
 $ cat /etc/kubernetes/addons/dashboard-admin.yaml
@@ -72,7 +75,7 @@ subjects:
 - kind: ServiceAccount
   name: kubernetes-dashboard-admin
   namespace: kubernetes-dashboard
- # 创建
+  #创建
  kubectl apply -f /etc/kubernetes/addons/dashboard-admin.yaml
  
  ## 5. 创建Ingress 入口文件
