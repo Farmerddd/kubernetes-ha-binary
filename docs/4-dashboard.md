@@ -131,7 +131,7 @@ spec:
 ```
 创建访问入口
 ```
-kubectl apply -f /etc/kubernetes/addons/dashboard-ingress.yaml
+$ kubectl apply -f /etc/kubernetes/addons/dashboard-ingress.yaml
 ```
 ### 6. 访问dashboard
 获取登陆 token
