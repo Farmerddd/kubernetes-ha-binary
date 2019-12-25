@@ -11,11 +11,13 @@
 
 
 #v2.0.0 单独放一个 namespace，下面是创建 kubernetes-dashboard namespace
+```
 $ kubectl  create namespace kubernetes-dashboard
-
+```
 #把生成的免费证书存放在 $HOME/certs 目录下，取名为 tls.crt 和 tls.key
+```
 $ mkdir $HOME/certs
-
+```
 #创建 ssl 证书 secret
 $ kubectl create secret generic kubernetes-dashboard-certs --from-file=$HOME/certs -n kubernetes-dashboard
 
