@@ -129,6 +129,10 @@ spec:
  ```
  $ kubectl -n kubernetes-dashboard create secret tls das.xxx.ga --key $HOME/certs/tls.key --cert $HOME/certs/tls.crt
 ```
+创建访问入口
+```
+kubectl apply -f /etc/kubernetes/addons/dashboard-ingress.yaml
+```
 ### 6. 访问dashboard
 获取登陆 token
 ```
