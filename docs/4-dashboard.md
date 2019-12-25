@@ -98,8 +98,8 @@ metadata:
 spec:
   tls:
   - hosts:
-    - das.360mm.ga
-    secretName: das.360mm.ga
+    - das.xxx.ga
+    secretName: das.xxx.ga
   rules:
   - host: das.360mm.ga
     http:
@@ -111,11 +111,12 @@ spec:
  ```
  准备ssl证书，注意Ingress必须与secret在同一个namespace
  ```
- $ kubectl -n kubernetes-dashboard create secret tls das.360mm.ga --key $HOME/certs/tls.key --cert $HOME/certs/tls.crt
+ $ kubectl -n kubernetes-dashboard create secret tls das.xxx.ga --key $HOME/certs/tls.key --cert $HOME/certs/tls.crt
 ```
 ### 6. 访问dashboard
 获取登陆 token
 ```
 $ kubectl -n kubernetes-dashboard describe secret $(kubectl -n kubernetes-dashboard get secret | grep kubernetes-dashboard-admin-token | awk '{print $1}')
+
+https://das.xxx.ga:8443/
 ```
-https://das.360mm.ga:8443/
