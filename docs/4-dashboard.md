@@ -101,7 +101,7 @@ spec:
     - das.xxx.ga
     secretName: das.xxx.ga
   rules:
-  - host: das.360mm.ga
+  - host: das.xxx.ga
     http:
       paths:
       - path: /
