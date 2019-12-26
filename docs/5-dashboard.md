@@ -1,4 +1,4 @@
-## 四. 部署dashboard
+## 五. 部署dashboard
 ```
 V2.0.0 相比 V1.x.x 优势
 监控信息不需要通过 Heapster 来提供，而是通过 Metrics Server 来提供，Metrics Scraper服务来采集，不需要单独维护 Heapster
