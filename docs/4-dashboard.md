@@ -59,8 +59,8 @@ $ scp recommended.yaml <user>@<node-ip>:/etc/kubernetes/addons/
         - --tls-key-file=/tls.key
         - --token-ttl=3600
 ```
-```
 修改 dashboard-metrics-scraper Deployment，否则会报错，"Metric client health check failed: the server is currently unable to handle the request" "Internal error occurred: No metric client provided. Skipping metrics." dashboard 收集不到数据
+```
 修改：hostNetwork: true
 ```
 ### 3. 部署 k8s dashboard 创建服务
