@@ -1,4 +1,4 @@
-# 五. 部署ingress-nginx
+# 四. 部署ingress-nginx
 ## 1. 部署ngress-nginx
 ```bash
 # 下载ingress-nginx yaml
