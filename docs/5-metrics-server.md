@@ -1,4 +1,4 @@
-## 四. 部署Metrics-server
+## 五. 部署Metrics-server
 ```
 与kubernets兼容性
 Metrics Server	Metrics API group/version	Supported Kubernetes version
