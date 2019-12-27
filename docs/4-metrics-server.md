@@ -29,12 +29,20 @@ $ cat metrics-server.json
     }
   ]
 }
+```
+生产证书，秘钥
+```
 $ cfssl gencert -ca=../ca.pem \
   -ca-key=../ca-key.pem \
   -config=../ca-config.json \
   -profile=kubernetes metrics-server.json | cfssljson -bare metrics-server
+```  
+在集群中创建secret
+```
 $ kubectl -n kube-system create secret generic metrics-server-certs --from-file=metrics-server-key.pem --from-file=metrics-server.pem
+```
 下发到每个worker节点
+```
 $ scp metrics-server*.pem master1:/etc/kubernetes/pki/metrics-server/
 $ scp metrics-server*.pem worker1:/etc/kubernetes/pki/metrics-server/
 $ scp metrics-server*.pem worker2:/etc/kubernetes/pki/metrics-server/
@@ -110,6 +118,45 @@ $ cd metrics-server/deploy/1.8+
           - name: metrics-server-certs
             mountPath: /certs
         nodeSelector:
-
-
+```
+创建授权文件
+```
+$ cat metrics-rbac.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: metrics-server
+rules:
+- apiGroups:
+    - metrics.k8s.io
+  resources:
+    - pods
+    - nodes
+    - namespaces
+  verbs:
+    - get
+    - list
+    - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: metrics-server
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: metrics-server
+subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:metrics-server
+```
+创建服务
+```
+kubectl apply -f 1.8+/
+```
+测试
+```
+kubectl top nodes
+kubectl top pods
 ```
