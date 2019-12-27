@@ -65,6 +65,8 @@ metrics-server 是扩展的 APIServer，依赖于kube-aggregator，因为我们�
 $ git clone https://github.com/kubernetes-sigs/metrics-server.git
 $ cd metrics-server/deploy/1.8+
 
+修改metrics-server-deployment.yaml
+
   apiVersion: apps/v1
   kind: Deployment
   metadata:
