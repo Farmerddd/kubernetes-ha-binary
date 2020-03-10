@@ -88,10 +88,10 @@ export HOST_3=192.168.15.248
 export ENDPOINTS=$HOST_1:2379,$HOST_2:2379,$HOST_3:2379
 export ETCDCTL_API=3
 
-/root/.bashrc 添加：
+~/.bashrc 添加：
 alias etcdctl='etcdctl --cacert="/etc/kubernetes/pki/ca.pem" --cert="/etc/kubernetes/pki/etcd.pem" --key="/etc/kubernetes/pki/etcd-key.pem" --endpoints=$ENDPOINTS'
 
-$ source /root/.bash_profile && source /root/.bashrc
+$ source ~/.bash_profile && source /root/.bashrc
 $ etcdctl member list
 $ etcdctl endpoint health
 
