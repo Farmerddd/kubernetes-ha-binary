@@ -12,11 +12,11 @@
 
 | 系统类型 | IP地址 | 节点角色 | CPU | Memory | Hostname |
 | :------: | :--------: | :-------: | :-----: | :---------: | :-----: |
-| centos-7.2 | 172.18.41.18 | master |   \>=2    | \>=2G | m7-a2-15-41.18-jiagou.cn |
-| centos-7.2 | 172.18.41.19 | master |   \>=2    | \>=2G | m7-a2-15-41.19-jiagou.cn |
-| centos-7.2 | 172.18.41.20 | master |   \>=2    | \>=2G | m7-a2-15-41.20-jiagou.cn |
-| centos-7.2 | 172.18.64.41 | worker |   \>=2    | \>=2G | syq-g05-64.41-jiagou.cn |
-| centos-7.2 | 172.18.64.42 | worker |   \>=2    | \>=2G | syq-g05-64.42-jiagou.cn |
+| centos-7.2 | 192.168.15.246 | master |   \>=2    | \>=2G | master1 |
+| centos-7.2 | 192.168.15.247 | master |   \>=2    | \>=2G | master2 |
+| centos-7.2 | 192.168.15.248 | master |   \>=2    | \>=2G | master3 |
+| centos-7.2 | 192.168.13.237 | worker |   \>=2    | \>=2G | worker1 |
+| centos-7.2 | 192.168.13.238 | worker |   \>=2    | \>=2G | worker2 |
 
 ## 2. 系统设置（所有节点）
 #### 2.1 主机名
@@ -43,7 +43,7 @@ $ yum install -y conntrack ipvsadm ipset jq sysstat curl iptables libseccomp
 #### 2.3 关闭防火墙、swap，重置iptables
 ```bash
 # 关闭防火墙
-$ systemctl stop firewalld && systemctl disable firewalld
+$ systemctl stop firewalld && systemctl disable firewalld && systemctl stop iptables && systemctl disable iptables
 
 # 重置iptables
 $ iptables -F && iptables -X && iptables -F -t nat && iptables -X -t nat && iptables -P FORWARD ACCEPT
