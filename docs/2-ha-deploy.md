@@ -263,7 +263,7 @@ $ kubectl config set-context system:kube-controller-manager \
 
 $ kubectl config use-context system:kube-controller-manager --kubeconfig=controller-manager.kubeconfig
 
-# 分发controller-manager.kubeconfig
+# 分发controller-manager.kubeconfig到每个master节点
 $ scp controller-manager.kubeconfig <user>@<node-ip>:/etc/kubernetes/
 
 ```
