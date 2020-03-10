@@ -42,7 +42,11 @@ $ scp ca*.pem <user>@<node-ip>:/etc/kubernetes/pki/
 如果你是从网盘下载的二进制可以跳过这一步（网盘中已经包含了etcd，不需要另外下载）。
 没有从网盘下载bin文件的话需要自己下载etcd
 ```bash
-$ wget https://github.com/coreos/etcd/releases/download/v3.2.18/etcd-v3.2.18-linux-amd64.tar.gz
+$ wget -c https://github.com/etcd-io/etcd/releases/download/v3.4.4/etcd-v3.4.4-linux-amd64.tar.gz
+$ tar xvzf etcd-v3.4.4-linux-amd64.tar.gz
+$ scp etcd* master1:/opt/kubernetes/bin/
+$ scp etcd* master2:/opt/kubernetes/bin/
+$ scp etcd* master3:/opt/kubernetes/bin/
 ```
 #### 2.2 生成证书和私钥
 ```bash
