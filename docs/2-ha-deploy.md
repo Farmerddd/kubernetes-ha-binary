@@ -321,7 +321,7 @@ $ kubectl config set-context system:kube-scheduler \
 
 $ kubectl config use-context system:kube-scheduler --kubeconfig=kube-scheduler.kubeconfig
 
-# 分发kubeconfig
+# 分发kubeconfig到每个master节点
 $ scp kube-scheduler.kubeconfig <user>@<node-ip>:/etc/kubernetes/
 ```
 #### 7.3 创建service文件
