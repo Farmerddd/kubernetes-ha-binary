@@ -91,7 +91,7 @@ export ETCDCTL_API=3
 ~/.bashrc 添加：
 alias etcdctl='etcdctl --cacert="/etc/kubernetes/pki/ca.pem" --cert="/etc/kubernetes/pki/etcd.pem" --key="/etc/kubernetes/pki/etcd-key.pem" --endpoints=$ENDPOINTS'
 
-$ source ~/.bash_profile && source /root/.bashrc
+$ source ~/.bash_profile && source ~/.bashrc
 $ etcdctl member list
 $ etcdctl endpoint health
 
