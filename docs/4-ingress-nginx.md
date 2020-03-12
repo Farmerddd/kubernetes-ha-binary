@@ -38,6 +38,8 @@ $ kubectl apply -f service-nodeport.yaml
 2. 生成证书
 $ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./tls.key -out ./tls.crt  -subj "/CN=k8s.xxxx.org/O=dev"
 $ kubectl create secret tls k8s.xxxx.org --key ./tls.key --cert ./tls.crt 
+#或者申请Let's Encrypt证书
+$ kubectl create secret tls 360mm.ga --key ./360mm.ga_key.key --cert ./360mm.ga_chain.crt
 
 3. 
 # 创建服务
