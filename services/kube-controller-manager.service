@@ -4,9 +4,9 @@ Documentation=https://github.com/GoogleCloudPlatform/kubernetes
 
 [Service]
 ExecStart=/opt/kubernetes/bin/kube-controller-manager \
-  --port=0 \
-  --secure-port=10252 \
-  --bind-address=127.0.0.1 \
+  #--port=0 \
+  #--secure-port=10252 \
+  #--bind-address=127.0.0.1 \
   --kubeconfig=/etc/kubernetes/controller-manager.kubeconfig \
   --service-cluster-ip-range={{SERVICE_CIDR}} \
   --cluster-name=kubernetes \
