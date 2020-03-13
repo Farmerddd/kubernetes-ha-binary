@@ -1,0 +1,19 @@
+kube-controller-manager的system unit文件
+参数说明
+--port=0 ：关闭监听 http /metrics 的请求.同时 --address 参数无效,--bind-address 参数有效.这项必须取消禁止,否则报错.
+解释:
+--secure-port=10252 、 --bind-address=0.0.0.0:在所有网络接口监听10252 端口的 https /metrics 请求,这两项也要禁止.
+--kubeconfig:指定 kubeconfig 文件路径,kube-controller-manager 使用它连接和验证 kube-apiserver；
+--cluster-signing--file:签名 TLS Bootstrap 创建的证书.
+--experimental-cluster-signing-duration:指定 TLS Bootstrap 证书的有效期.
+--root-ca-file ：放置到容器 ServiceAccount 中的 CA 证书,用来对 kubeapiserver的证书进行校验
+--service-account-private-key-file:签名 ServiceAccount 中 Token 的私钥文件,必须和 kube-apiserver 的 --service-account-key-file 指定的公钥文件配对使用.
+--service-cluster-ip-range:指定 Service Cluster IP 网段,必须和 kubeapiserver中的同名参数一致.
+--leader-elect=true:集群运行模式,启用选举功能.被选为 leader 的节点负责处理工作,其它节点为阻塞状态.
+--feature-gates=RotateKubeletServerCertificate=true:开启 kublet server 证书的自动更新特性.
+--controllers=,bootstrapsigner,tokencleaner:启用的控制器列表,tokencleaner 用于自动清理过期的 Bootstrap token
+--horizontal-pod-autoscaler-*:custom metrics 相关参数,支持autoscaling/v2alpha1.
+--tls-cert-file 、 --tls-private-key-file:使用 https 输出 metrics 时使用的 Server 证书和秘钥；
+--use-service-account-credentials=true:ClusteRole:system:kube-controller-manager 的权限很小,只能创建 secret,serviceaccount 等资源对象.各 controller 的权限分散到 ClusterRolesystem:controller:XXX 中.需要在 kube-controller-manager 的启动参数中添加 --use-service-accountcredentials=true 参数,这样 main controller 会为各 controller 创建对应的ServiceAccount XXX-controller.内置的 ClusterRoleBinding system:controller:XXX 将赋予各 XXX-controllerServiceAccount 对应的 ClusterRole system:controller:XXX 权限.
+User=k8s:使用 k8s 账户运行
+kube-controller-manager 不对请求 https metrics 的 Client 证书进行校验,故不需要指定--tls-ca-file 参数,而且该参数已被淘汰.
