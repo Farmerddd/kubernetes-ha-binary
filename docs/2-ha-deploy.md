@@ -520,7 +520,7 @@ $ yum install gcc make libnftnl-devel libmnl-devel autoconf automake libtool bis
 12.2 编译安装iptables
 
 $ export LC_ALL=C
-$ wget wget https://www.netfilter.org/projects/iptables/files/iptables-1.6.2.tar.bz2
+$ wget -c https://www.netfilter.org/projects/iptables/files/iptables-1.6.2.tar.bz2
 $ tar -xvf iptables-1.6.2.tar.bz2
 $ cd iptables-1.6.2
 $ ./autogen.sh
