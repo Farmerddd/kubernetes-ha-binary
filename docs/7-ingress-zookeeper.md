@@ -1,7 +1,6 @@
 1. 创建PV、PVC
 ```
 cat zk-pv.yaml
-
 apiVersion: v1
 kind: PersistentVolume
 metadata:
