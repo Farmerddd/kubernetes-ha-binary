@@ -22,6 +22,7 @@ https://docs.projectcalico.org/v3.10/getting-started/kubernetes/requirements
 #### [四、部署ingress][4]
 #### [五、部署metrics-server][5]
 #### [六、部署dashboard][6]
+#### [七、部署ingress-zookeeper][7]
 
 
 
@@ -31,3 +32,4 @@ https://docs.projectcalico.org/v3.10/getting-started/kubernetes/requirements
 [4]:https://github.com/Farmerddd/kubernetes-ha-binary/blob/master/docs/4-ingress-nginx.md
 [5]:https://github.com/Farmerddd/kubernetes-ha-binary/blob/master/docs/5-metrics-server.md
 [6]:https://github.com/Farmerddd/kubernetes-ha-binary/blob/master/docs/6-dashboard.md
+[7]:https://github.com/Farmerddd/kubernetes-ha-binary/blob/master/docs/7-ingress-zookeeper.md
