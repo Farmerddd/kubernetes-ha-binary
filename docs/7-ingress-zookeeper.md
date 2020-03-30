@@ -188,3 +188,39 @@ spec:
         requests:
           storage: 2Gi
 ```
+3. 添加ingress tcp转发
+```
+修改 mandatory.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ingress-nginx
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+
+---
+
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-configuration
+  namespace: ingress-nginx
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: tcp-services
+  namespace: ingress-nginx
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+data:                                 #添加
+  2181: "default/svc-zk-cs:2181"      #添加
+##格式:
+<ZK port>: <namespace/service name>:<service port>:[PROXY]:[PROXY]
+```
