@@ -51,6 +51,8 @@ spec:
     hostPath:
       path: "/opt/data/zookeeper"
     persistentVolumeReclaimPolicy: Recycle
+    
+# kubectl apply -f zk-pv.yaml
 ```
 2. 创建zookeeper
 ```
@@ -187,10 +189,11 @@ spec:
       resources:
         requests:
           storage: 2Gi
+kubectl apply -f zookeeper.yaml
 ```
 3. 添加ingress tcp转发
 ```
-修改 mandatory.yaml
+#修改 mandatory.yaml
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -223,6 +226,7 @@ data:                                 #添加
   2181: "default/svc-zk-cs:2181"      #添加
 ##格式:
 <ZK port>: <namespace/service name>:<service port>:[PROXY]:[PROXY]
+#kubectl apply -f mandatory.yaml
 ```
 4.修改service-nodeport.yaml
 ```
@@ -255,4 +259,5 @@ spec:
   selector:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
+#kubectl apply -f service-nodeport.yaml
 ```
