@@ -1,5 +1,5 @@
 1. 创建PV、PVC
-'''
+```
 cat zk-pv.yaml
 
 apiVersion: v1
@@ -52,4 +52,4 @@ spec:
     hostPath:
       path: "/opt/data/zookeeper"
     persistentVolumeReclaimPolicy: Recycle
-'''
+```
