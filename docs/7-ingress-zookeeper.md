@@ -224,3 +224,35 @@ data:                                 #添加
 ##格式:
 <ZK port>: <namespace/service name>:<service port>:[PROXY]:[PROXY]
 ```
+4.修改service-nodeport.yaml
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress-nginx
+  namespace: ingress-nginx
+  labels:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      protocol: TCP
+      nodePort: 8480
+    - name: https
+      port: 443
+      targetPort: 443
+      protocol: TCP
+      nodePort: 8443
+    - name: zk-tcp       #新加
+      port: 2181         #新加
+      targetPort: 2181   #新加
+      protocol: TCP      #新加
+      nodePort: 8421     #新加
+  selector:
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+```
