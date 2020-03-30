@@ -1,0 +1,53 @@
+1. 创建PV、PVC
+cat zk-pv.yaml
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: pv-zk1
+    annotations:
+      volume.beta.kubernetes.io/storage-class: "anything"     #对应的pv class 名
+    labels:
+      type: local
+spec:
+    capacity:
+      storage: 2Gi
+    accessModes:
+      - ReadWriteOnce
+    hostPath:
+      path: "/opt/data/zookeeper"
+    persistentVolumeReclaimPolicy: Recycle
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: pv-zk2
+    annotations:
+      volume.beta.kubernetes.io/storage-class: "anything"
+    labels:
+      type: local
+spec:
+    capacity:
+      storage: 2Gi
+    accessModes:
+      - ReadWriteOnce
+    hostPath:
+      path: "/opt/data/zookeeper"
+    persistentVolumeReclaimPolicy: Recycle
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: pv-zk3
+    annotations:
+      volume.beta.kubernetes.io/storage-class: "anything"
+    labels:
+      type: local
+spec:
+    capacity:
+      storage: 2Gi
+    accessModes:
+      - ReadWriteOnce
+    hostPath:
+      path: "/opt/data/zookeeper"
+    persistentVolumeReclaimPolicy: Recycle
